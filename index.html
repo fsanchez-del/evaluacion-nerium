@@ -1,412 +1,459 @@
-<!doctype html>
-<html lang="es">
+<form
+    class="page"
+    action="https://formspree.io/f/mgogajde"
+    method="POST"
+    id="evaluacionForm"
+>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Evaluación de Calidad | nerium</title>
+    <header>
+        <h1>
+            EVALUACIÓN DE CALIDAD<br>
+            <span class="sub">EN EL SERVICIO A CLIENTES</span>
+        </h1>
 
-    <style>
-        :root {
-            --navy: #462983;
-            --purple: #7135e0;
-            --line: #cfd2dc;
-            --soft: #f7f7fb
-        }
+        <div class="logo-container">
+            <img src="logo-nerium.png" alt="Nerium" class="logo">
+        </div>
+    </header>
 
-        * {
-            box-sizing: border-box
-        }
-
-        body {
-            margin: 0;
-            background: #eef0f5;
-            font-family: Arial, sans-serif;
-            color: #151525
-        }
-
-        .page {
-            max-width: 1050px;
-            margin: 24px auto;
-            background: white;
-            padding: 28px;
-            box-shadow: 0 5px 24px #0002
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 14px
-        }
-
-        h1 {
-            margin: 0;
-            color: #15194d;
-            font-size: 31px;
-            line-height: 1.05
-        }
-
-        .sub {
-            color: #594dff;
-            font-weight: 400
-        }
-
-        .brand {
-            font-size: 44px;
-            font-weight: 800;
-            color: #050505
-        }
-
-        .tag {
-            font-size: 11px;
-            text-align: right
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-
-        .logo {
-            width: 200px;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .intro {
-            font-size: 14px;
-            line-height: 1.45
-        }
-
-        .section {
-            border: 1px solid var(--line);
-            margin-top: 18px
-        }
-
-        .section-title {
-            background: var(--navy);
-            color: #fff;
-            padding: 7px 14px;
-            font-weight: bold;
-            font-size: 14px
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 12px;
-            padding: 14px
-        }
-
-        label {
-            font-size: 13px;
-            font-weight: bold
-        }
-
-        input[type=text],
-        input[type=date],
-        input[type=email] {
-            width: 100%;
-            padding: 9px;
-            border: 1px solid #bbb;
-            border-radius: 4px;
-            margin-top: 5px
-        }
-
-        .full {
-            grid-column: 1/-1
-        }
-
-        .checks {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 8px;
-            font-size: 13px
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px
-        }
-
-        th,
-        td {
-            border: 1px solid #bbb;
-            padding: 7px;
-            text-align: center
-        }
-
-        th:first-child,
-        td:first-child {
-            text-align: left;
-            width: 43%
-        }
-
-        .rate5 {
-            background: #ff9c9c
-        }
-
-        .rate4 {
-            background: #ffc27b
-        }
-
-        .rate3 {
-            background: #ffe27b
-        }
-
-        .rate2 {
-            background: #cce88b
-        }
-
-        .rate1 {
-            background: #83d47c
-        }
-
-        .questions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0
-        }
-
-        .q {
-            padding: 16px;
-            border-top: 1px solid #ddd
-        }
-
-        .q:nth-child(odd) {
-            border-right: 1px solid #ddd
-        }
-
-        .options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 13px;
-            margin-top: 10px;
-            font-size: 13px
-        }
-
-        .faces {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 12px
-        }
-
-        .face {
-            text-align: center;
-            font-size: 12px
-        }
-
-        .emoji {
-            font-size: 27px;
-            display: block;
-            margin-bottom: 6px
-        }
-
-        .footer {
-            text-align: center;
-            color: var(--navy);
-            font-weight: bold;
-            font-style: italic;
-            margin: 20px
-        }
-
-        button {
-            display: block;
-            margin: 20px auto 5px;
-            background: var(--navy);
-            color: white;
-            border: 0;
-            padding: 13px 32px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 15px;
-            cursor: pointer
-        }
-
-        .note {
-            text-align: center;
-            font-size: 12px;
-            color: #666
-        }
-
-        @media(max-width:700px) {
-            .page {
-                margin: 0;
-                padding: 14px
-            }
-
-            .grid,
-            .questions {
-                grid-template-columns: 1fr
-            }
-
-            .q:nth-child(odd) {
-                border-right: 0
-            }
-
-            .checks {
-                grid-template-columns: 1fr 1fr
-            }
-
-            .brand {
-                font-size: 30px
-            }
-
-            h1 {
-                font-size: 22px
-            }
-
-            table {
-                font-size: 10px
-            }
-
-            th,
-            td {
-                padding: 5px 2px
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <form
-        class="page"
-        action="https://formspree.io/f/mgogajde"
-        method="POST"
-    >
-
-        <header>
-            <h1>
-                EVALUACIÓN DE CALIDAD<br>
-                <span class="sub">EN EL SERVICIO A CLIENTES</span>
-            </h1>
-
-            <div class="logo-container">
-                <img src="logo-nerium.png" alt="Nerium" class="logo">
-            </div>
-        </header>
-
-        <p class="intro">
-            <b>Estimado Cliente:</b><br>
-            En nerium, la calidad de nuestros servicios y la atención a nuestros clientes
-            es parte fundamental de nuestro compromiso. Agradecemos su apoyo al compartirnos
-            su opinión sobre el servicio recibido, ya que sus comentarios nos permiten
-            mejorar continuamente.
-        </p>
+    <p class="intro">
+        <b>Estimado Cliente:</b><br>
+        En nerium, la calidad de nuestros servicios y la atención a nuestros clientes
+        es parte fundamental de nuestro compromiso. Agradecemos su apoyo al compartirnos
+        su opinión sobre el servicio recibido, ya que sus comentarios nos permiten
+        mejorar continuamente.
+    </p>
 
 
-        <!-- DATOS DEL SERVICIO -->
+    <!-- DATOS DEL SERVICIO -->
 
-        <div class="section">
+    <div class="section">
 
-            <div class="section-title">
-                DATOS DEL SERVICIO
-            </div>
+        <div class="section-title">
+            DATOS DEL SERVICIO
+        </div>
 
-            <div class="grid">
+        <div class="grid">
+
+            <label>
+                Fecha *
+                <input
+                    type="date"
+                    name="Fecha del servicio"
+                    required
+                >
+            </label>
+
+            <label>
+                Empresa / Cliente *
+                <input
+                    type="text"
+                    name="Empresa"
+                    required
+                >
+            </label>
+
+            <label class="full">
+                No. de Ticket / Servicio *
+                <input
+                    type="text"
+                    name="Ticket"
+                    required
+                >
+            </label>
+
+            <div class="full">
 
                 <label>
-                    Fecha *
-                    <input
-                        type="date"
-                        name="Fecha del servicio"
-                        required
-                    >
+                    Motivo / Tipo de servicio *
                 </label>
 
-                <label>
-                    Empresa / Cliente *
-                    <input
-                        type="text"
-                        name="Empresa"
-                        required
-                    >
-                </label>
-
-                <label class="full">
-                    No. de Ticket / Servicio *
-                    <input
-                        type="text"
-                        name="Ticket"
-                        required
-                    >
-                </label>
-
-                <div class="full">
+                <div class="checks">
 
                     <label>
-                        Motivo / Tipo de servicio *
+                        <input
+                            type="checkbox"
+                            name="Tipo de servicio"
+                            value="Instalación / Implementación"
+                            class="tipo-servicio"
+                        >
+                        Instalación / Implementación
                     </label>
 
-                    <div class="checks">
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="Tipo de servicio"
+                            value="Mantenimiento"
+                            class="tipo-servicio"
+                        >
+                        Mantenimiento
+                    </label>
 
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="Tipo de servicio"
-                                value="Instalación / Implementación"
-                            >
-                            Instalación / Implementación
-                        </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="Tipo de servicio"
+                            value="Visita técnica"
+                            class="tipo-servicio"
+                        >
+                        Visita técnica
+                    </label>
 
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="Tipo de servicio"
-                                value="Mantenimiento"
-                            >
-                            Mantenimiento
-                        </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="Tipo de servicio"
+                            value="Soporte técnico"
+                            class="tipo-servicio"
+                        >
+                        Soporte técnico
+                    </label>
 
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="Tipo de servicio"
-                                value="Visita técnica"
-                            >
-                            Visita técnica
-                        </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="Tipo de servicio"
+                            value="Atención de incidente / Emergencia"
+                            class="tipo-servicio"
+                        >
+                        Atención de incidente / Emergencia
+                    </label>
 
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="Tipo de servicio"
-                                value="Soporte técnico"
-                            >
-                            Soporte técnico
-                        </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="Tipo de servicio"
+                            value="Diagnóstico / Revisión"
+                            class="tipo-servicio"
+                        >
+                        Diagnóstico / Revisión
+                    </label>
 
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="Tipo de servicio"
-                                value="Atención de incidente / Emergencia"
-                            >
-                            Atención de incidente / Emergencia
-                        </label>
+                </div>
 
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="Tipo de servicio"
-                                value="Diagnóstico / Revisión"
-                            >
-                            Diagnóstico / Revisión
-                        </label>
+                <input
+                    type="text"
+                    name="Otro tipo de servicio"
+                    placeholder="Otro: especifica"
+                >
 
-                    </div>
+            </div>
 
-                    <input
-                        type="text"
-                        name="Otro tipo de servicio"
-                        placeholder="Otro: especifica"
-                    >
+        </div>
+
+    </div>
+
+
+    <!-- EVALUACIÓN DEL SERVICIO -->
+
+    <div class="section">
+
+        <div class="section-title">
+            EVALUACIÓN DEL SERVICIO
+        </div>
+
+        <div style="padding:14px">
+
+            <p style="font-size:13px">
+                Favor de indicar su grado de satisfacción respecto a los siguientes aspectos:
+            </p>
+
+            <table>
+
+                <tr>
+                    <th>ASPECTO A EVALUAR</th>
+                    <th class="rate1">😁<br>Muy bueno</th>
+                    <th class="rate2">🙂<br>Bueno</th>
+                    <th class="rate3">😐<br>Regular</th>
+                    <th class="rate4">🙁<br>Malo</th>
+                    <th class="rate5">😠<br>Muy malo</th>
+                </tr>
+
+
+                <!-- ATENCIÓN -->
+
+                <tr>
+                    <td>Atención y coordinación del servicio</td>
+
+                    <td><input type="radio" name="Atención y coordinación" value="1 - Muy bueno" required></td>
+                    <td><input type="radio" name="Atención y coordinación" value="2 - Bueno"></td>
+                    <td><input type="radio" name="Atención y coordinación" value="3 - Regular"></td>
+                    <td><input type="radio" name="Atención y coordinación" value="4 - Malo"></td>
+                    <td><input type="radio" name="Atención y coordinación" value="5 - Muy malo"></td>
+                </tr>
+
+
+                <!-- TIEMPO DE RESPUESTA -->
+
+                <tr>
+                    <td>Tiempo de respuesta</td>
+
+                    <td><input type="radio" name="Tiempo de respuesta" value="1 - Muy bueno" required></td>
+                    <td><input type="radio" name="Tiempo de respuesta" value="2 - Bueno"></td>
+                    <td><input type="radio" name="Tiempo de respuesta" value="3 - Regular"></td>
+                    <td><input type="radio" name="Tiempo de respuesta" value="4 - Malo"></td>
+                    <td><input type="radio" name="Tiempo de respuesta" value="5 - Muy malo"></td>
+                </tr>
+
+
+                <!-- PUNTUALIDAD -->
+
+                <tr>
+                    <td>Puntualidad del personal</td>
+
+                    <td><input type="radio" name="Puntualidad del personal" value="1 - Muy bueno" required></td>
+                    <td><input type="radio" name="Puntualidad del personal" value="2 - Bueno"></td>
+                    <td><input type="radio" name="Puntualidad del personal" value="3 - Regular"></td>
+                    <td><input type="radio" name="Puntualidad del personal" value="4 - Malo"></td>
+                    <td><input type="radio" name="Puntualidad del personal" value="5 - Muy malo"></td>
+                </tr>
+
+
+                <!-- PROFESIONALISMO -->
+
+                <tr>
+                    <td>Profesionalismo y atención del personal</td>
+
+                    <td><input type="radio" name="Profesionalismo y atención del personal" value="1 - Muy bueno" required></td>
+                    <td><input type="radio" name="Profesionalismo y atención del personal" value="2 - Bueno"></td>
+                    <td><input type="radio" name="Profesionalismo y atención del personal" value="3 - Regular"></td>
+                    <td><input type="radio" name="Profesionalismo y atención del personal" value="4 - Malo"></td>
+                    <td><input type="radio" name="Profesionalismo y atención del personal" value="5 - Muy malo"></td>
+                </tr>
+
+
+                <!-- CAPACIDAD TÉCNICA -->
+
+                <tr>
+                    <td>Conocimiento y capacidad técnica</td>
+
+                    <td><input type="radio" name="Conocimiento y capacidad técnica" value="1 - Muy bueno" required></td>
+                    <td><input type="radio" name="Conocimiento y capacidad técnica" value="2 - Bueno"></td>
+                    <td><input type="radio" name="Conocimiento y capacidad técnica" value="3 - Regular"></td>
+                    <td><input type="radio" name="Conocimiento y capacidad técnica" value="4 - Malo"></td>
+                    <td><input type="radio" name="Conocimiento y capacidad técnica" value="5 - Muy malo"></td>
+                </tr>
+
+
+                <!-- CLARIDAD -->
+
+                <tr>
+                    <td>Claridad en la explicación del trabajo realizado</td>
+
+                    <td><input type="radio" name="Claridad en la explicación del trabajo realizado" value="1 - Muy bueno" required></td>
+                    <td><input type="radio" name="Claridad en la explicación del trabajo realizado" value="2 - Bueno"></td>
+                    <td><input type="radio" name="Claridad en la explicación del trabajo realizado" value="3 - Regular"></td>
+                    <td><input type="radio" name="Claridad en la explicación del trabajo realizado" value="4 - Malo"></td>
+                    <td><input type="radio" name="Claridad en la explicación del trabajo realizado" value="5 - Muy malo"></td>
+                </tr>
+
+
+                <!-- CUMPLIMIENTO -->
+
+                <tr>
+                    <td>Cumplimiento del servicio solicitado</td>
+
+                    <td><input type="radio" name="Cumplimiento del servicio solicitado" value="1 - Muy bueno" required></td>
+                    <td><input type="radio" name="Cumplimiento del servicio solicitado" value="2 - Bueno"></td>
+                    <td><input type="radio" name="Cumplimiento del servicio solicitado" value="3 - Regular"></td>
+                    <td><input type="radio" name="Cumplimiento del servicio solicitado" value="4 - Malo"></td>
+                    <td><input type="radio" name="Cumplimiento del servicio solicitado" value="5 - Muy malo"></td>
+                </tr>
+
+
+                <!-- ORDEN Y LIMPIEZA -->
+
+                <tr>
+                    <td>Orden y limpieza durante la realización del servicio</td>
+
+                    <td><input type="radio" name="Orden y limpieza" value="1 - Muy bueno" required></td>
+                    <td><input type="radio" name="Orden y limpieza" value="2 - Bueno"></td>
+                    <td><input type="radio" name="Orden y limpieza" value="3 - Regular"></td>
+                    <td><input type="radio" name="Orden y limpieza" value="4 - Malo"></td>
+                    <td><input type="radio" name="Orden y limpieza" value="5 - Muy malo"></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <!-- PREGUNTAS ADICIONALES -->
+
+        <div class="questions">
+
+            <div class="q">
+
+                <b>
+                    ¿El servicio fue concluido satisfactoriamente?
+                </b>
+
+                <div class="options">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="Servicio concluido"
+                            value="Sí, completamente"
+                            required
+                        >
+                        Sí, completamente
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="Servicio concluido"
+                            value="Parcialmente"
+                        >
+                        Parcialmente
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="Servicio concluido"
+                            value="No"
+                        >
+                        No
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="Servicio concluido"
+                            value="Requiere seguimiento"
+                        >
+                        Requiere seguimiento
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="q">
+
+                <b>
+                    ¿El personal de nerium le explicó el trabajo realizado?
+                </b>
+
+                <div class="options">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="Explicación del trabajo"
+                            value="Sí"
+                            required
+                        >
+                        Sí
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="Explicación del trabajo"
+                            value="No"
+                        >
+                        No
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="Explicación del trabajo"
+                            value="No aplica"
+                        >
+                        No aplica
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="q">
+
+                <b>
+                    ¿Cómo evalúa la ejecución general del servicio?<br>&nbsp;
+                </b>
+
+                <div class="faces">
+
+                    <label class="face">
+                        <span class="emoji">😁</span>
+                        <input type="radio" name="Evaluación general" value="1 - Muy bueno" required>
+                        Muy bueno
+                    </label>
+
+                    <label class="face">
+                        <span class="emoji">🙂</span>
+                        <input type="radio" name="Evaluación general" value="2 - Bueno">
+                        Bueno
+                    </label>
+
+                    <label class="face">
+                        <span class="emoji">😐</span>
+                        <input type="radio" name="Evaluación general" value="3 - Regular">
+                        Regular
+                    </label>
+
+                    <label class="face">
+                        <span class="emoji">🙁</span>
+                        <input type="radio" name="Evaluación general" value="4 - Malo">
+                        Malo
+                    </label>
+
+                    <label class="face">
+                        <span class="emoji">😠</span>
+                        <input type="radio" name="Evaluación general" value="5 - Muy malo">
+                        Muy malo
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="q">
+
+                <b>
+                    ¿Cómo evalúa a nerium como proveedor de servicios y soluciones tecnológicas?
+                </b>
+
+                <div class="faces">
+
+                    <label class="face">
+                        <span class="emoji">😁</span>
+                        <input type="radio" name="Evaluación de nerium" value="1 - Muy bueno" required>
+                        Muy bueno
+                    </label>
+
+                    <label class="face">
+                        <span class="emoji">🙂</span>
+                        <input type="radio" name="Evaluación de nerium" value="2 - Bueno">
+                        Bueno
+                    </label>
+
+                    <label class="face">
+                        <span class="emoji">😐</span>
+                        <input type="radio" name="Evaluación de nerium" value="3 - Regular">
+                        Regular
+                    </label>
+
+                    <label class="face">
+                        <span class="emoji">🙁</span>
+                        <input type="radio" name="Evaluación de nerium" value="4 - Malo">
+                        Malo
+                    </label>
+
+                    <label class="face">
+                        <span class="emoji">😠</span>
+                        <input type="radio" name="Evaluación de nerium" value="5 - Muy malo">
+                        Muy malo
+                    </label>
 
                 </div>
 
@@ -414,390 +461,88 @@
 
         </div>
 
-
-        <!-- EVALUACIÓN DEL SERVICIO -->
-
-        <div class="section">
-
-            <div class="section-title">
-                EVALUACIÓN DEL SERVICIO
-            </div>
-
-            <div style="padding:14px">
-
-                <p style="font-size:13px">
-                    Favor de indicar su grado de satisfacción respecto a los siguientes aspectos:
-                </p>
-
-                <table>
-
-                    <tr>
-                        <th>ASPECTO A EVALUAR</th>
-                        <th class="rate1">😁<br>Muy bueno</th>
-                        <th class="rate2">🙂<br>Bueno</th>
-                        <th class="rate3">😐<br>Regular</th>
-                        <th class="rate4">🙁<br>Malo</th>
-                        <th class="rate5">😠<br>Muy malo</th>
-                    </tr>
-
-
-                    <!-- ATENCIÓN -->
-
-                    <tr>
-                        <td>Atención y coordinación del servicio</td>
-                        
-                        <td><input type="radio" name="Atención y coordinación" value="1 - Muy bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="2 - Bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="3 - Regular"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="4 - Malo"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="5 - Muy malo" required></td>
-                    </tr>
-
-
-                    <!-- TIEMPO DE RESPUESTA -->
-
-                    <tr>
-                        <td>Tiempo de respuesta</td>
-
-                        <td><input type="radio" name="Atención y coordinación" value="1 - Muy bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="2 - Bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="3 - Regular"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="4 - Malo"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="5 - Muy malo" required></td> 
-                    </tr>
-
-
-                    <!-- PUNTUALIDAD -->
-
-                    <tr>
-                        <td>Puntualidad del personal</td>
-
-                        <td><input type="radio" name="Atención y coordinación" value="1 - Muy bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="2 - Bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="3 - Regular"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="4 - Malo"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="5 - Muy malo" required></td>
-                    </tr>
-
-
-                    <!-- PROFESIONALISMO -->
-
-                    <tr>
-                        <td>Profesionalismo y atención del personal</td>
-
-                        <td><input type="radio" name="Atención y coordinación" value="1 - Muy bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="2 - Bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="3 - Regular"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="4 - Malo"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="5 - Muy malo" required></td>
-                    </tr>
-
-
-                    <!-- CAPACIDAD TÉCNICA -->
-
-                    <tr>
-                        <td>Conocimiento y capacidad técnica</td>
-                        
-                        <td><input type="radio" name="Atención y coordinación" value="1 - Muy bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="2 - Bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="3 - Regular"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="4 - Malo"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="5 - Muy malo" required></td>
-                    </tr>
-
-
-                    <!-- CLARIDAD -->
-
-                    <tr>
-                        <td>Claridad en la explicación del trabajo realizado</td>
-
-                        <td><input type="radio" name="Atención y coordinación" value="1 - Muy bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="2 - Bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="3 - Regular"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="4 - Malo"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="5 - Muy malo" required></td>
-                    </tr>
-
-
-                    <!-- CUMPLIMIENTO -->
-
-                    <tr>
-                        <td>Cumplimiento del servicio solicitado</td>
-                        
-                        <td><input type="radio" name="Atención y coordinación" value="1 - Muy bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="2 - Bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="3 - Regular"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="4 - Malo"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="5 - Muy malo" required></td>
-                    </tr>
-
-
-                    <!-- ORDEN Y LIMPIEZA -->
-
-                    <tr>
-                        <td>Orden y limpieza durante la realización del servicio</td>
-                        
-                        <td><input type="radio" name="Atención y coordinación" value="1 - Muy bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="2 - Bueno"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="3 - Regular"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="4 - Malo"></td>
-                        <td><input type="radio" name="Atención y coordinación" value="5 - Muy malo" required></td>
-                    </tr>
-
-                </table>
-
-            </div>
-
-
-            <!-- PREGUNTAS ADICIONALES -->
-
-            <div class="questions">
-
-
-                <div class="q">
-
-                    <b>
-                        ¿El servicio fue concluido satisfactoriamente?
-                    </b>
-
-                    <div class="options">
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="Servicio concluido"
-                                value="Sí, completamente"
-                                required
-                            >
-                            Sí, completamente
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="Servicio concluido"
-                                value="Parcialmente"
-                            >
-                            Parcialmente
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="Servicio concluido"
-                                value="No"
-                            >
-                            No
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="Servicio concluido"
-                                value="Requiere seguimiento"
-                            >
-                            Requiere seguimiento
-                        </label>
-
-                    </div>
-
-                </div>
-
-
-                <div class="q">
-
-                    <b>
-                        ¿El personal de nerium le explicó el trabajo realizado?
-                    </b>
-
-                    <div class="options">
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="Explicación del trabajo"
-                                value="Sí"
-                                required
-                            >
-                            Sí
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="Explicación del trabajo"
-                                value="No"
-                            >
-                            No
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="Explicación del trabajo"
-                                value="No aplica"
-                            >
-                            No aplica
-                        </label>
-
-                    </div>
-
-                </div>
-
-
-                <div class="q">
-
-                    <b>
-                        ¿Cómo evalúa la ejecución general del servicio?<br>&nbsp;
-                    </b>
-
-                    <div class="faces">
-
-                        <label class="face">
-                            <span class="emoji">😁</span>
-                            <input type="radio" name="Evaluación general" value="1 - Muy bueno">
-                            Muy bueno
-                        </label>
-
-                        <label class="face">
-                            <span class="emoji">🙂</span>
-                            <input type="radio" name="Evaluación general" value="2 - Bueno">
-                            Bueno
-                        </label>
-
-                        <label class="face">
-                            <span class="emoji">😐</span>
-                            <input type="radio" name="Evaluación general" value="3 - Regular">
-                            Regular
-                        </label>
-
-                        <label class="face">
-                            <span class="emoji">🙁</span>
-                            <input type="radio" name="Evaluación general" value="4 - Malo">
-                            Malo
-                        </label>
-
-
-                        <label class="face">
-                            <span class="emoji">😠</span>
-                            <input type="radio" name="Evaluación general" value="5 - Muy malo" required>
-                            Muy malo
-                        </label>
-
-                    </div>
-
-                </div>
-
-
-                <div class="q">
-
-                    <b>
-                        ¿Cómo evalúa a nerium como proveedor de servicios y soluciones tecnológicas?
-                    </b>
-
-                    <div class="faces">
-
-                        <label class="face">
-                            <span class="emoji">😁</span>
-                            <input type="radio" name="Evaluación general" value="1 - Muy bueno">
-                            Muy bueno
-                        </label>
-
-                        <label class="face">
-                            <span class="emoji">🙂</span>
-                            <input type="radio" name="Evaluación general" value="2 - Bueno">
-                            Bueno
-                        </label>
-
-                        <label class="face">
-                            <span class="emoji">😐</span>
-                            <input type="radio" name="Evaluación general" value="3 - Regular">
-                            Regular
-                        </label>
-
-                        <label class="face">
-                            <span class="emoji">🙁</span>
-                            <input type="radio" name="Evaluación general" value="4 - Malo">
-                            Malo
-                        </label>
-
-
-                        <label class="face">
-                            <span class="emoji">😠</span>
-                            <input type="radio" name="Evaluación general" value="5 - Muy malo" required>
-                            Muy malo
-                        </label>
-
-                    </div>
-
-                </div>
-
-            </div>
+    </div>
+
+
+    <!-- DATOS DEL ENCUESTADO -->
+
+    <div class="section">
+
+        <div class="section-title">
+            DATOS DEL ENCUESTADO
+        </div>
+
+        <div class="grid">
+
+            <label>
+                Nombre *
+                <input
+                    type="text"
+                    name="Nombre"
+                    required
+                >
+            </label>
+
+            <label>
+                Puesto
+                <input
+                    type="text"
+                    name="Puesto"
+                >
+            </label>
+
+            <label>
+                Correo electrónico *
+                <input
+                    type="email"
+                    name="email"
+                    required
+                >
+            </label>
+
+            <label>
+                Firma / Nombre de conformidad
+                <input
+                    type="text"
+                    name="Firma"
+                    placeholder="Escribe tu nombre"
+                >
+            </label>
 
         </div>
 
-
-        <!-- DATOS DEL ENCUESTADO -->
-
-        <div class="section">
-
-            <div class="section-title">
-                DATOS DEL ENCUESTADO
-            </div>
-
-            <div class="grid">
-
-                <label>
-                    Nombre *
-                    <input
-                        type="text"
-                        name="Nombre"
-                        required
-                    >
-                </label>
-
-                <label>
-                    Puesto
-                    <input
-                        type="text"
-                        name="Puesto"
-                    >
-                </label>
-
-                <label>
-                    Correo electrónico *
-                    <input
-                        type="email"
-                        name="email"
-                        required
-                    >
-                </label>
-
-                <label>
-                    Firma / Nombre de conformidad
-                    <input
-                        type="text"
-                        name="Firma"
-                        placeholder="Escribe tu nombre"
-                    >
-                </label>
-
-            </div>
-
-        </div>
+    </div>
 
 
-        <button type="submit">
-            ENVIAR EVALUACIÓN
-        </button>
+    <button type="submit">
+        ENVIAR EVALUACIÓN
+    </button>
 
 
-        <div class="footer">
-            ¡Gracias por permitirnos servirle! Su opinión nos ayuda a mejorar continuamente.
-        </div>
+    <div class="footer">
+        ¡Gracias por permitirnos servirle! Su opinión nos ayuda a mejorar continuamente.
+    </div>
 
-    </form>
+</form>
 
-</body>
+<script>
+    const formulario = document.getElementById('evaluacionForm');
+    const tiposServicio = document.querySelectorAll('.tipo-servicio');
 
-</html>
+    formulario.addEventListener('submit', function(event) {
+        const algunoSeleccionado = Array.from(tiposServicio).some(
+            checkbox => checkbox.checked
+        );
+
+        if (!algunoSeleccionado) {
+            event.preventDefault();
+
+            alert('Por favor, selecciona al menos un Motivo / Tipo de servicio.');
+
+            tiposServicio[0].scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    });
+</script>
