@@ -129,6 +129,13 @@
         font-size: 13px
     }
 
+    /* CONTENEDOR RESPONSIVE DE LA TABLA */
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
     table {
         width: 100%;
         border-collapse: collapse;
@@ -236,6 +243,7 @@
     }
 
     @media(max-width:700px) {
+
         .page {
             margin: 0;
             padding: 14px
@@ -262,8 +270,10 @@
             font-size: 22px
         }
 
+        /* LA TABLA MANTIENE SU ESTRUCTURA EN CELULAR */
         table {
-            font-size: 10px
+            font-size: 11px;
+            min-width: 700px;
         }
 
         th,
@@ -286,6 +296,7 @@
 >
 
     <header>
+
         <h1>
             EVALUACIÓN DE CALIDAD<br>
             <span class="sub">EN EL SERVICIO A CLIENTES</span>
@@ -294,7 +305,9 @@
         <div class="logo-container">
             <img src="logo-nerium.png" alt="Nerium" class="logo">
         </div>
+
     </header>
+
 
     <p class="intro">
         <b>Estimado Cliente:</b><br>
@@ -439,6 +452,11 @@
                 Favor de indicar su grado de satisfacción respecto a los siguientes aspectos:
             </p>
 
+
+            <!-- INICIO TABLA RESPONSIVE -->
+
+            <div class="table-responsive">
+
             <table>
 
                 <tr>
@@ -520,7 +538,7 @@
 
                 <tr>
                     <td>Claridad en la explicación del trabajo realizado</td>
-                
+
                     <td><input type="radio" name="Claridad de explicación" value="1 - Muy bueno" required></td>
                     <td><input type="radio" name="Claridad de explicación" value="2 - Bueno"></td>
                     <td><input type="radio" name="Claridad de explicación" value="3 - Regular"></td>
@@ -555,6 +573,10 @@
                 </tr>
 
             </table>
+
+            </div>
+
+            <!-- FIN TABLA RESPONSIVE -->
 
         </div>
 
@@ -805,16 +827,19 @@
 
 </form>
 
+
 <script>
     const formulario = document.getElementById('evaluacionForm');
     const tiposServicio = document.querySelectorAll('.tipo-servicio');
 
     formulario.addEventListener('submit', function(event) {
+
         const algunoSeleccionado = Array.from(tiposServicio).some(
             checkbox => checkbox.checked
         );
 
         if (!algunoSeleccionado) {
+
             event.preventDefault();
 
             alert('Por favor, selecciona al menos un Motivo / Tipo de servicio.');
@@ -823,10 +848,13 @@
                 behavior: 'smooth',
                 block: 'center'
             });
+
         }
+
     });
 </script>
 
-    </body>
+
+</body>
 
 </html>
